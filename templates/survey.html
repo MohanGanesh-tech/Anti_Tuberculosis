@@ -1,0 +1,715 @@
+{% load static %}
+{% static "img" as baseUrl %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Anti Tuberculosis</title>
+    <link rel="icon" href="{% static 'img/lunglogo_sq.jpg' %}" style="border-radius: 10px;" type="image" sizes="16x16">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- <script src="{% static 'css/login.css' %}"></script> -->
+    <!------ Include the above in your HEAD tag ---------->
+
+<style>
+/*search box css start here*/
+.search-sec{
+    padding: 2rem;
+}
+.search-slt{
+    display: block;
+    width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #5c5558;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid rgb(255, 255, 255) ;
+    border-radius:0;
+}
+.wrn-btn{
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    
+}
+@media (min-width: 992px){
+    .search-sec{
+        position: relative;
+        top: -114px;
+        background:  #1A4668;
+    }
+}
+
+@media (max-width: 992px){
+    .search-sec{
+        background: #1A4668;
+    }
+}
+
+.context-dark, .bg-gray-dark, .bg-primary {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-classic a, .footer-classic a:focus, .footer-classic a:active {
+    color: #ffffff;
+}
+.nav-list li {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.nav-list li a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 23px;
+    font: 900 13px/1 "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+}
+.social-container .col {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-list li a:before {
+    content: "\f14f";
+    font: 400 21px/1 "Material Design Icons";
+    color: #4d6de6;
+    display: inline-block;
+    vertical-align: baseline;
+    margin-left: -28px;
+    margin-right: 7px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .22s ease;
+}
+
+.question{
+        width: 100%;
+        height: 100px;
+        background: #dd6b4d;
+        border-radius: 50px 0px 50px 0px;
+}
+
+@media only screen and (max-width: 900px) {
+    .question{
+        width: 100%;
+        height: 210px;
+        background: #dd6b4d;
+        border-radius: 50px 0px 50px 0px;
+    }
+}
+</style>
+
+  </head>
+  <body style="background-color:  rgb(240, 240, 240);">
+
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#"><h1 class="text-center" style="color: #1A4668; font-family: ew Century Schoolbook, TeX Gyre Schola, serif; font-size: 45px;"><i><b>Anti Tuberculosis</b></i>
+        <p class="text-center" style="color: rgb(128, 128, 128); font-size: 20px; font-family: Chaparral Pro Light;">Bring the Life Back to World</p></h1>  
+      </a>
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="padding-top: 25px; padding-left: 10px;">
+          <li class="nav-item">
+            <a class="nav-link" href="home"><h4 style="color: #1A4668">Home</h4> <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#"><h4 style="color: #dc3545">Survey Form<h4></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="home#about_us"><h4 style="color: #1A4668">About Us<h4></a>
+          </li>
+
+        </ul>
+        
+        <a href="{% url 'logout' %}"><button class="btn btn-outline-danger">Logout</button></a>
+       
+      </div>
+    </nav>
+
+<br>
+
+<div class="container">
+<br>
+      {% for message in messages %}
+          <h2 style="color: #dc3545; text-align: center;">{{message}}</h2>
+      {% endfor %}
+
+    {% if "on" == x %}
+
+    <h1 style="text-align: center; color: #dc3545">Survey Form</h1>
+    <h6 style="text-align: center; color: rgb(128, 128, 128);">Please support by filling the Survey Form</h6><br/>
+
+    <form action="survey_form" method="post">
+    {% csrf_token %}
+        <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+            <h3><button type="button" class="btn btn-light">1</button>
+                <span style="color: white; padding-left: 5px">Are you aware of NTEP 2025 programme</span>
+            </h3>
+        </div>
+        <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="1" name="1" value="1" required>
+            <label for="1" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="1" name="1" value="2">
+            <label for="1" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="1" name="1" value="3">
+            <label for="1" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">2</button>
+            <span style="color: white; padding-left: 5px">Have you updated knowledge on diagnosis of Tb</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="2" name="2" value="1" required>
+            <label for="2" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="2" name="2" value="2">
+            <label for="2" class="element-animation"><h5>No</h5></label> 
+        </li>
+        <li>
+            <input type="radio" id="2" name="2" value="3">
+            <label for="2" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">3</button>
+            <span style="color: white; padding-left: 5px">Have you updated knowledge on drug sensitive Tb</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="3" name="3" value="1" required>
+            <label for="3" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="3" name="3" value="2">
+            <label for="3" class="element-animation"><h5>No</h5></label> 
+        </li>
+        <li>
+            <input type="radio" id="3" name="3" value="3">
+            <label for="3" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">4</button>
+            <span style="color: white; padding-left: 5px">Have you updated knowledge on drug resistant Tb</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="4" name="4" value="1" required>
+            <label for="4" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="4" name="4" value="2">
+            <label for="4" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="4" name="4" value="3">
+            <label for="4" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">5</button>
+            <span style="color: white; padding-left: 5px">Are you aware of benifits of being part of NTEP for PHP</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="5" name="5" value="1" required>
+            <label for="5" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="5" name="5" value="2">
+            <label for="5" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="5" name="5" value="3">
+            <label for="5" class="element-animation"><h5>Partially</h5></label> 
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">6</button>
+            <span style="color: white; padding-left: 5px">Are you aware of benifits of being part of NTEP for Patients</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="6" name="6" value="1" required>
+            <label for="6" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="6" name="6" value="2">
+            <label for="6" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="6" name="6" value="3">
+            <label for="6" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">7</button>
+            <span style="color: white; padding-left: 5px">Are you aware of available nearby NTEP attached lab centres</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="7" name="7" value="1" required>
+            <label for="7" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="7" name="7" value="2">
+            <label for="7" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="7" name="7" value="3">
+            <label for="7" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">8</button>
+            <span style="color: white; padding-left: 5px">Do you notify a case of Tb to NTEP cell</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="8" name="8" value="1" required>
+            <label for="8" class="element-animation"><h5>Yes</h5></label>  
+        </li>
+        <li>
+            <input type="radio" id="8" name="8" value="2">
+            <label for="8" class="element-animation"><h5>No</h5></label>   
+        </li>
+        <li>
+            <input type="radio" id="c" name="8" value="3">
+            <label for="8" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">9</button>
+            <span style="color: white; padding-left: 5px">Do you notify through NIKSHAY app</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="9" name="9" value="1" required>
+            <label for="9" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="9" name="9" value="2">
+            <label for="9" class="element-animation"><h5>No</h5></label> 
+        </li>
+        <li>
+            <input type="radio" id="9" name="9" value="3">
+            <label for="9" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">10</button>
+            <span style="color: white; padding-left: 5px">Do you notify through Tb Health Care Worker</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="10" name="10" value="1" required>
+            <label for="a" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="10" name="10" value="2">
+            <label for="10" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="10" name="10" value="3">
+            <label for="10" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">11</button>
+            <span style="color: white; padding-left: 5px">Notification process takes 30mins. Would you like to notify</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="11" name="11" value="1" required>
+            <label for="11" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="11" name="11" value="2">
+            <label for="11" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="11" name="11" value="3">
+            <label for="11" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">12</button>
+            <span style="color: white; padding-left: 5px">Do you initiate lab tests to confirm Tb following clinical suspicion</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="12" name="12" value="1" required>
+            <label for="12" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="12" name="12" value="2">
+            <label for="12" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="12" name="12" value="3">
+            <label for="12" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">13</button>
+            <span style="color: white; padding-left: 5px">Do you initiate Tb treatment</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="a" name="13" value="1" required>
+            <label for="13" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="13" name="13" value="2">
+            <label for="13" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="13" name="13" value="3">
+            <label for="13" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">14</button>
+            <span style="color: white; padding-left: 5px">Do you follow NTEP recommended treatment protocol</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="14" name="14" value="1" required>
+            <label for="14" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="14" name="14" value="2">
+            <label for="14" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="14" name="14" value="3">
+            <label for="14" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">15</button>
+            <span style="color: white; padding-left: 5px">Do you actively monitor the patient</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="15" name="15" value="1" required>
+            <label for="15" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="15" name="15" value="2">
+            <label for="15" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="15" name="15" value="3">
+            <label for="15" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">16</button>
+            <span style="color: white; padding-left: 5px">Do you have time to counsel the patient to improve adherence</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="16" name="16" value="1" required>
+            <label for="16" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="16" name="16" value="2">
+            <label for="16" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="16" name="16" value="3">
+            <label for="16" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">17</button>
+            <span style="color: white; padding-left: 5px">Do you refer clinically suspicious all Tb patients to NTEP center</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="17" name="17" value="1" required>
+            <label for="17" class="element-animation"><h5>Yes</h5></label>  
+        </li>
+        <li>
+            <input type="radio" id="17" name="17" value="2">
+            <label for="17" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="c" name="17" value="3">
+            <label for="17" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">18</button>
+            <span style="color: white; padding-left: 5px">Do you refer clinically suspicious all Tb patients to other private practitioners</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="18" name="18" value="1" required>
+            <label for="18" class="element-animation"><h5>Yes</h5></label> 
+        </li>
+        <li>
+            <input type="radio" id="18" name="18" value="2">
+            <label for="18" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="18" name="18" value="3">
+            <label for="18" class="element-animation"><h5>Partially</h5></label>
+        </li>
+
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">19</button>
+            <span style="color: white; padding-left: 5px">Do you support NTEP programme</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="19" name="19" value="1" required>
+            <label for="19" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="19" name="19" value="2">
+            <label for="19" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="19" name="19" value="3">
+            <label for="19" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+<br>
+
+
+    <div class="question" style="padding-left: 20px; padding-top: 12px" ><br>
+        <h3><button type="button" class="btn btn-light">20</button>
+            <span style="color: white; padding-left: 5px">Happy with NTEP programme</span>
+        </h3>
+    </div>
+    <br>
+    <ul style="padding-left: 40px">  
+        <li>
+            <input type="radio" id="20" name="20" value="1" required>
+            <label for="20" class="element-animation"><h5>Yes</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="20" name="20" value="2">
+            <label for="20" class="element-animation"><h5>No</h5></label>
+        </li>
+        <li>
+            <input type="radio" id="20" name="20" value="3">
+            <label for="20" class="element-animation"><h5>Partially</h5></label>
+        </li>
+    </ul>
+
+    <br><br>
+    <div style="text-align: center;"><input type="Submit" class="btn btn-primary btn-lg" value="Submit"></input></div>
+
+</form>
+
+{% endif %}
+</div>
+
+
+
+<br><br><br>
+<footer class="section footer-classic context-dark bg-image" style="background: #1A4668;">
+        <div class="container" style="padding-top: 30px; padding-bottom: 30px;">
+          <div class="row row-30">
+            <div class="col-md-4 col-xl-5">
+                <div class="pr-xl-4"><img class="brand-logo-light" src="{% static 'img/lunglogo_sq.jpg' %}" alt="" width="160" height="140" style="border-radius: 10px;"><br><br>
+                <p>We are the best institution in solving the real world problems</p>
+                <!-- Rights-->
+                {% comment %} <p class="rights"><span>©  </span><span class="copyright-year">2018</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span></p> {% endcomment %}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <h5>Contacts</h5>
+              <dl class="contact-list">
+                <dt>Address:</dt>
+                <dd>SSIT, Tumkur-Kunigal Rd, Saraswathipuram, Tumakuru, Karnataka 572105</dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>email:</dt>
+                <dd><a href="mailto:#">bhm.cse@gmail.com@gmail.com</a></dd>
+              </dl>
+              <dl class="contact-list">
+                <dt>phones:</dt>
+                <dd><a href="tel:#">+91 9900600756</a> <span> or <a href="tel:#">+91 8162200999</a> <span>
+                </dd>
+              </dl>
+            </div>
+            <div class="col-md-4 col-xl-3">
+              {% comment %} <h5>Links</h5>
+              <ul class="nav-list">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contacts</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul> {% endcomment %}
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row no-gutters social-container">
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
+          <div class="col"><a class="social-inner" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+        </div> -->
+      </footer>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
